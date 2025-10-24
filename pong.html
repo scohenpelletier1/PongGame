@@ -8,48 +8,103 @@
         body {
             margin: 0;
             padding: 0;
-            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            background: linear-gradient(135deg, #0d5016, #1a7a2e, #2d5a2d);
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             font-family: 'Arial', sans-serif;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                radial-gradient(circle at 20% 20%, rgba(34, 139, 34, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(50, 205, 50, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 40% 60%, rgba(0, 100, 0, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 90% 30%, rgba(34, 139, 34, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 10% 90%, rgba(0, 128, 0, 0.2) 0%, transparent 50%);
+            pointer-events: none;
+        }
+        
+        body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20,10 Q30,5 40,10 Q50,15 60,10 Q70,5 80,10 L85,20 Q80,30 70,25 Q60,20 50,25 Q40,30 30,25 Q20,30 15,20 Z" fill="%23006600" opacity="0.3"/><path d="M10,60 Q20,55 30,60 Q40,65 50,60 Q60,55 70,60 L75,70 Q70,80 60,75 Q50,70 40,75 Q30,80 20,75 Q10,80 5,70 Z" fill="%23008000" opacity="0.2"/><path d="M60,40 Q70,35 80,40 Q90,45 100,40 L105,50 Q100,60 90,55 Q80,50 70,55 Q60,60 50,55 Q40,60 35,50 Z" fill="%002200" opacity="0.4"/></svg>');
+            background-size: 200px 200px;
+            background-repeat: repeat;
+            pointer-events: none;
+            opacity: 0.6;
         }
         
         .game-container {
             text-align: center;
-            background: rgba(255, 255, 255, 0.1);
+            background: rgba(0, 50, 0, 0.2);
             padding: 20px;
             border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
             backdrop-filter: blur(10px);
+            border: 2px solid rgba(0, 100, 0, 0.3);
+            position: relative;
+            z-index: 10;
+        }
+        
+        .game-container::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: -20px;
+            right: -20px;
+            bottom: -20px;
+            background-image: 
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><g><path d="M30,5 L35,20 L50,20 L38,30 L43,45 L30,35 L17,45 L22,30 L10,20 L25,20 Z" fill="%23006600" opacity="0.6"/><path d="M15,15 L18,25 L28,25 L20,32 L23,42 L15,35 L7,42 L10,32 L2,25 L12,25 Z" fill="%002200" opacity="0.4"/><path d="M45,15 L48,25 L58,25 L50,32 L53,42 L45,35 L37,42 L40,32 L32,25 L42,25 Z" fill="%004400" opacity="0.5"/></g></svg>'),
+                url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40"><path d="M20,3 L23,15 L35,15 L26,22 L29,34 L20,27 L11,34 L14,22 L5,15 L17,15 Z" fill="%008800" opacity="0.3"/></svg>');
+            background-size: 60px 60px, 40px 40px;
+            background-position: 0 0, 30px 30px;
+            background-repeat: repeat;
+            border-radius: 25px;
+            z-index: -1;
         }
         
         h1 {
-            color: white;
+            color: #90EE90;
             margin-bottom: 20px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(144, 238, 144, 0.3);
+            font-weight: bold;
         }
         
         #gameCanvas {
-            border: 3px solid #fff;
+            border: 3px solid #228B22;
             border-radius: 10px;
             background: #000;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.7), 0 0 15px rgba(34, 139, 34, 0.3);
         }
         
         .controls {
-            color: white;
+            color: #90EE90;
             margin-top: 15px;
             font-size: 14px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
         }
         
         .score {
-            color: white;
+            color: #90EE90;
             font-size: 24px;
             font-weight: bold;
             margin: 10px 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(144, 238, 144, 0.4);
         }
         
         .game-over {
@@ -64,35 +119,174 @@
             background: linear-gradient(45deg, #ff6b6b, #ee5a24);
             color: white;
             border: none;
-            padding: 10px 20px;
-            border-radius: 25px;
+            padding: 15px 25px;
             font-size: 16px;
             font-weight: bold;
             cursor: pointer;
             margin: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             transition: transform 0.2s;
+            position: relative;
+            clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+            width: 120px;
+            height: 120px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
         }
         
         button:hover {
-            transform: translateY(-2px);
+            transform: translateY(-2px) scale(1.05);
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(45deg, #ff8e8e, #ff7a4a);
         }
         
         button:active {
-            transform: translateY(0);
+            transform: translateY(0) scale(0.95);
+        }
+        
+        .intro-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .intro-content {
+            background: linear-gradient(135deg, #0d5016, #1a7a2e, #2d5a2d);
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            max-width: 600px;
+            margin: 20px;
+            border: 3px solid #228B22;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(34, 139, 34, 0.5);
+        }
+        
+        .intro-content h2 {
+            color: #90EE90;
+            font-size: 28px;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(144, 238, 144, 0.4);
+        }
+        
+        .intro-content p {
+            color: #90EE90;
+            font-size: 18px;
+            margin: 15px 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+            line-height: 1.6;
+        }
+        
+        .intro-content .highlight {
+            color: #ff6b6b;
+            font-weight: bold;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 8px rgba(255, 107, 107, 0.4);
+        }
+        
+        .intro-content .instructions {
+            color: #FFD700;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 25px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8), 0 0 10px rgba(255, 215, 0, 0.4);
+        }
+        
+        .victory-popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            display: none;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            backdrop-filter: blur(5px);
+        }
+        
+        .victory-content {
+            background: linear-gradient(135deg, #FFD700, #FFA500, #FF8C00);
+            padding: 50px;
+            border-radius: 25px;
+            text-align: center;
+            max-width: 700px;
+            margin: 20px;
+            border: 5px solid #FFA500;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.6);
+            animation: victoryGlow 2s ease-in-out infinite alternate;
+        }
+        
+        @keyframes victoryGlow {
+            from {
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 215, 0, 0.6);
+            }
+            to {
+                box-shadow: 0 15px 40px rgba(0, 0, 0, 0.8), 0 0 50px rgba(255, 215, 0, 0.9);
+            }
+        }
+        
+        .victory-content h2 {
+            color: #000;
+            font-size: 36px;
+            margin-bottom: 25px;
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8);
+            font-weight: bold;
+        }
+        
+        .victory-content p {
+            color: #000;
+            font-size: 24px;
+            margin: 20px 0;
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            font-weight: bold;
+        }
+        
+        .victory-content .treasure {
+            font-size: 32px;
+            margin: 25px 0;
         }
     </style>
 </head>
 <body>
+    <!-- Introduction Popup -->
+    <div id="introPopup" class="intro-popup">
+        <div class="intro-content">
+            <h2>🚨 URGENT HELP NEEDED! 🚨</h2>
+            <p>Hello! My name is <span class="highlight">Sophia C-P</span> and I am in danger.</p>
+            <p>Please win the game to save me, otherwise I will perish!</p>
+            <p class="instructions">Press SPACE to begin the battle!</p>
+        </div>
+    </div>
+
+    <!-- Victory Popup -->
+    <div id="victoryPopup" class="victory-popup">
+        <div class="victory-content">
+            <h2>🏆 VICTORY! 🏆</h2>
+            <div class="treasure">🎉💎⚡</div>
+            <p>You have found the legendary loot!</p>
+            <p>You are the champion!</p>
+        </div>
+    </div>
+
     <div class="game-container">
-        <h1>Pong Game</h1>
+        <h1>Man v. 2 Lions</h1>
         <div class="score">
             <span id="playerScore">0</span> - <span id="computerScore">0</span>
         </div>
         <canvas id="gameCanvas" width="800" height="400"></canvas>
         <div class="controls">
-            <p>Player: W/S keys | Computer: Arrow Up/Down keys</p>
+            <p>Player Lion: W/S keys | Computer Lion: Arrow Up/Down keys</p>
             <p>Press SPACE to start/pause</p>
         </div>
         <div id="gameStatus"></div>
@@ -109,6 +303,116 @@
         const gameStatusEl = document.getElementById('gameStatus');
         const startBtn = document.getElementById('startBtn');
         const resetBtn = document.getElementById('resetBtn');
+        const introPopup = document.getElementById('introPopup');
+        const victoryPopup = document.getElementById('victoryPopup');
+
+        // Image variables
+        let personImg = null;
+        let lionImg = null;
+
+        // Create sprites using canvas drawing
+        function createPersonSprite() {
+            const spriteCanvas = document.createElement('canvas');
+            spriteCanvas.width = 32;
+            spriteCanvas.height = 32;
+            const spriteCtx = spriteCanvas.getContext('2d');
+            
+            // Draw a larger person with scared face
+            spriteCtx.fillStyle = '#ffdbac'; // Skin color
+            spriteCtx.beginPath();
+            spriteCtx.arc(16, 10, 8, 0, Math.PI * 2); // Head
+            spriteCtx.fill();
+            
+            spriteCtx.fillStyle = '#8B4513'; // Brown hair
+            spriteCtx.beginPath();
+            spriteCtx.arc(16, 10, 9, 0, Math.PI * 2);
+            spriteCtx.fill();
+            
+            spriteCtx.fillStyle = '#ffdbac';
+            spriteCtx.beginPath();
+            spriteCtx.arc(16, 10, 8, 0, Math.PI * 2);
+            spriteCtx.fill();
+            
+            // Scared eyes (wide open)
+            spriteCtx.fillStyle = '#000';
+            spriteCtx.beginPath();
+            spriteCtx.arc(13, 8, 1.5, 0, Math.PI * 2); // Left eye
+            spriteCtx.arc(19, 8, 1.5, 0, Math.PI * 2); // Right eye
+            spriteCtx.fill();
+            
+            // Scared mouth (open wide)
+            spriteCtx.fillStyle = '#000';
+            spriteCtx.beginPath();
+            spriteCtx.arc(16, 13, 3, 0, Math.PI); // Open mouth
+            spriteCtx.fill();
+            
+            // Body
+            spriteCtx.fillStyle = '#4169E1'; // Blue shirt
+            spriteCtx.fillRect(13, 18, 6, 10);
+            
+            // Arms
+            spriteCtx.fillRect(10, 20, 3, 8);
+            spriteCtx.fillRect(19, 20, 3, 8);
+            
+            // Legs
+            spriteCtx.fillStyle = '#000'; // Black pants
+            spriteCtx.fillRect(14, 28, 2, 4);
+            spriteCtx.fillRect(16, 28, 2, 4);
+            
+            return spriteCanvas;
+        }
+
+        function createLionSprite() {
+            const spriteCanvas = document.createElement('canvas');
+            spriteCanvas.width = 40;
+            spriteCanvas.height = 80;
+            const spriteCtx = spriteCanvas.getContext('2d');
+            
+            // Lion body
+            spriteCtx.fillStyle = '#DAA520'; // Golden color
+            spriteCtx.fillRect(15, 20, 10, 50);
+            
+            // Lion head
+            spriteCtx.beginPath();
+            spriteCtx.arc(20, 15, 12, 0, Math.PI * 2);
+            spriteCtx.fill();
+            
+            // Mane
+            spriteCtx.fillStyle = '#B8860B'; // Darker golden
+            for (let i = 0; i < 8; i++) {
+                const angle = (i / 8) * Math.PI * 2;
+                const x = 20 + Math.cos(angle) * 15;
+                const y = 15 + Math.sin(angle) * 15;
+                spriteCtx.beginPath();
+                spriteCtx.arc(x, y, 4, 0, Math.PI * 2);
+                spriteCtx.fill();
+            }
+            
+            // Eyes
+            spriteCtx.fillStyle = '#000';
+            spriteCtx.beginPath();
+            spriteCtx.arc(17, 12, 1, 0, Math.PI * 2);
+            spriteCtx.arc(23, 12, 1, 0, Math.PI * 2);
+            spriteCtx.fill();
+            
+            // Nose
+            spriteCtx.beginPath();
+            spriteCtx.arc(20, 16, 1, 0, Math.PI * 2);
+            spriteCtx.fill();
+            
+            // Mouth
+            spriteCtx.strokeStyle = '#000';
+            spriteCtx.lineWidth = 1;
+            spriteCtx.beginPath();
+            spriteCtx.arc(20, 18, 3, 0, Math.PI);
+            spriteCtx.stroke();
+            
+            return spriteCanvas;
+        }
+
+        // Initialize sprites
+        personImg = createPersonSprite();
+        lionImg = createLionSprite();
 
         // Game state
         let gameRunning = false;
@@ -117,14 +421,15 @@
         let computerScore = 0;
         let gameSpeed = 1;
 
-        // Ball properties
-        const ball = {
+        // Person properties (formerly ball)
+        const person = {
             x: canvas.width / 2,
             y: canvas.height / 2,
             dx: 4 * gameSpeed,
             dy: 4 * gameSpeed,
-            radius: 8,
-            color: '#fff'
+            radius: 16,
+            width: 32,
+            height: 32
         };
 
         // Paddle properties
@@ -156,7 +461,8 @@
             s: false,
             ArrowUp: false,
             ArrowDown: false,
-            space: false
+            space: false,
+            e: false
         };
 
         // Event listeners
@@ -165,9 +471,19 @@
             if (e.key === 's' || e.key === 'S') keys.s = true;
             if (e.key === 'ArrowUp') keys.ArrowUp = true;
             if (e.key === 'ArrowDown') keys.ArrowDown = true;
+            if (e.key === 'e' || e.key === 'E') {
+                e.preventDefault();
+                triggerCheat();
+            }
             if (e.key === ' ') {
                 e.preventDefault();
                 keys.space = true;
+                
+                // Hide intro popup if it's visible
+                if (introPopup.style.display !== 'none') {
+                    introPopup.style.display = 'none';
+                }
+                
                 if (!gameRunning) {
                     startGame();
                 } else {
@@ -181,6 +497,7 @@
             if (e.key === 's' || e.key === 'S') keys.s = false;
             if (e.key === 'ArrowUp') keys.ArrowUp = false;
             if (e.key === 'ArrowDown') keys.ArrowDown = false;
+            if (e.key === 'e' || e.key === 'E') keys.e = false;
             if (e.key === ' ') keys.space = false;
         });
 
@@ -211,10 +528,10 @@
             gamePaused = false;
             playerScore = 0;
             computerScore = 0;
-            ball.x = canvas.width / 2;
-            ball.y = canvas.height / 2;
-            ball.dx = 4 * gameSpeed;
-            ball.dy = 4 * gameSpeed;
+            person.x = canvas.width / 2;
+            person.y = canvas.height / 2;
+            person.dx = 4 * gameSpeed;
+            person.dy = 4 * gameSpeed;
             playerPaddle.y = canvas.height / 2 - paddleHeight / 2;
             computerPaddle.y = canvas.height / 2 - paddleHeight / 2;
             
@@ -229,11 +546,27 @@
             computerScoreEl.textContent = computerScore;
         }
 
-        function resetBall() {
-            ball.x = canvas.width / 2;
-            ball.y = canvas.height / 2;
-            ball.dx = (Math.random() > 0.5 ? 4 : -4) * gameSpeed;
-            ball.dy = (Math.random() > 0.5 ? 4 : -4) * gameSpeed;
+        function triggerCheat() {
+            // Stop the game
+            gameRunning = false;
+            gamePaused = false;
+            
+            // Set player score to win condition (5 points)
+            playerScore = 5;
+            updateScore();
+            
+            // Show the victory popup
+            victoryPopup.style.display = 'flex';
+            
+            // Update the start button
+            startBtn.textContent = 'Start Game';
+        }
+
+        function resetPerson() {
+            person.x = canvas.width / 2;
+            person.y = canvas.height / 2;
+            person.dx = (Math.random() > 0.5 ? 4 : -4) * gameSpeed;
+            person.dy = (Math.random() > 0.5 ? 4 : -4) * gameSpeed;
         }
 
         function updatePaddles() {
@@ -247,55 +580,55 @@
 
             // Computer paddle movement (AI)
             const computerPaddleCenter = computerPaddle.y + paddleHeight / 2;
-            const ballY = ball.y;
+            const personY = person.y;
             
-            if (ballY < computerPaddleCenter - 10 && computerPaddle.y > 0) {
+            if (personY < computerPaddleCenter - 10 && computerPaddle.y > 0) {
                 computerPaddle.y -= paddleSpeed * 0.8; // Slightly slower than player
-            } else if (ballY > computerPaddleCenter + 10 && computerPaddle.y < canvas.height - paddleHeight) {
+            } else if (personY > computerPaddleCenter + 10 && computerPaddle.y < canvas.height - paddleHeight) {
                 computerPaddle.y += paddleSpeed * 0.8;
             }
         }
 
-        function updateBall() {
-            ball.x += ball.dx;
-            ball.y += ball.dy;
+        function updatePerson() {
+            person.x += person.dx;
+            person.y += person.dy;
 
-            // Ball collision with top and bottom walls
-            if (ball.y - ball.radius <= 0 || ball.y + ball.radius >= canvas.height) {
-                ball.dy = -ball.dy;
+            // Person collision with top and bottom walls
+            if (person.y - person.radius <= 0 || person.y + person.radius >= canvas.height) {
+                person.dy = -person.dy;
             }
 
-            // Ball collision with paddles
-            if (ball.x - ball.radius <= playerPaddle.x + playerPaddle.width &&
-                ball.x + ball.radius >= playerPaddle.x &&
-                ball.y >= playerPaddle.y &&
-                ball.y <= playerPaddle.y + playerPaddle.height) {
+            // Person collision with lions (paddles)
+            if (person.x - person.radius <= playerPaddle.x + playerPaddle.width &&
+                person.x + person.radius >= playerPaddle.x &&
+                person.y >= playerPaddle.y &&
+                person.y <= playerPaddle.y + playerPaddle.height) {
                 
                 // Calculate hit position relative to paddle center
-                const hitPos = (ball.y - (playerPaddle.y + paddleHeight / 2)) / (paddleHeight / 2);
-                ball.dx = Math.abs(ball.dx);
-                ball.dy = hitPos * 5 * gameSpeed;
+                const hitPos = (person.y - (playerPaddle.y + paddleHeight / 2)) / (paddleHeight / 2);
+                person.dx = Math.abs(person.dx);
+                person.dy = hitPos * 5 * gameSpeed;
             }
 
-            if (ball.x + ball.radius >= computerPaddle.x &&
-                ball.x - ball.radius <= computerPaddle.x + computerPaddle.width &&
-                ball.y >= computerPaddle.y &&
-                ball.y <= computerPaddle.y + computerPaddle.height) {
+            if (person.x + person.radius >= computerPaddle.x &&
+                person.x - person.radius <= computerPaddle.x + computerPaddle.width &&
+                person.y >= computerPaddle.y &&
+                person.y <= computerPaddle.y + computerPaddle.height) {
                 
-                const hitPos = (ball.y - (computerPaddle.y + paddleHeight / 2)) / (paddleHeight / 2);
-                ball.dx = -Math.abs(ball.dx);
-                ball.dy = hitPos * 5 * gameSpeed;
+                const hitPos = (person.y - (computerPaddle.y + paddleHeight / 2)) / (paddleHeight / 2);
+                person.dx = -Math.abs(person.dx);
+                person.dy = hitPos * 5 * gameSpeed;
             }
 
-            // Ball out of bounds
-            if (ball.x < 0) {
+            // Person out of bounds
+            if (person.x < 0) {
                 computerScore++;
                 updateScore();
-                resetBall();
-            } else if (ball.x > canvas.width) {
+                resetPerson();
+            } else if (person.x > canvas.width) {
                 playerScore++;
                 updateScore();
-                resetBall();
+                resetPerson();
             }
         }
 
@@ -314,29 +647,18 @@
             ctx.stroke();
             ctx.setLineDash([]);
 
-            // Draw ball
-            ctx.fillStyle = ball.color;
-            ctx.beginPath();
-            ctx.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2);
-            ctx.fill();
+            // Draw person
+            ctx.drawImage(personImg, person.x - person.width/2, person.y - person.height/2);
 
-            // Draw paddles
-            ctx.fillStyle = playerPaddle.color;
-            ctx.fillRect(playerPaddle.x, playerPaddle.y, playerPaddle.width, playerPaddle.height);
+            // Draw lions (paddles)
+            ctx.drawImage(lionImg, playerPaddle.x - 5, playerPaddle.y);
+            ctx.drawImage(lionImg, computerPaddle.x - 5, computerPaddle.y);
 
-            ctx.fillStyle = computerPaddle.color;
-            ctx.fillRect(computerPaddle.x, computerPaddle.y, computerPaddle.width, computerPaddle.height);
-
-            // Add glow effect to paddles
-            ctx.shadowColor = playerPaddle.color;
-            ctx.shadowBlur = 20;
-            ctx.fillStyle = playerPaddle.color;
-            ctx.fillRect(playerPaddle.x, playerPaddle.y, playerPaddle.width, playerPaddle.height);
-
-            ctx.shadowColor = computerPaddle.color;
-            ctx.shadowBlur = 20;
-            ctx.fillStyle = computerPaddle.color;
-            ctx.fillRect(computerPaddle.x, computerPaddle.y, computerPaddle.width, computerPaddle.height);
+            // Add glow effect to lions
+            ctx.shadowColor = '#DAA520';
+            ctx.shadowBlur = 15;
+            ctx.drawImage(lionImg, playerPaddle.x - 5, playerPaddle.y);
+            ctx.drawImage(lionImg, computerPaddle.x - 5, computerPaddle.y);
 
             ctx.shadowBlur = 0;
         }
@@ -345,14 +667,20 @@
             if (!gameRunning || gamePaused) return;
 
             updatePaddles();
-            updateBall();
+            updatePerson();
             draw();
 
             // Check for game over
             if (playerScore >= 5 || computerScore >= 5) {
                 gameRunning = false;
-                const winner = playerScore >= 5 ? 'Player' : 'Computer';
-                gameStatusEl.innerHTML = `<div class="game-over">Game Over! ${winner} Wins!</div>`;
+                if (playerScore >= 5) {
+                    // Player wins - show victory popup
+                    victoryPopup.style.display = 'flex';
+                } else {
+                    // Computer wins - show regular game over message
+                    const winner = 'Computer Lion';
+                    gameStatusEl.innerHTML = `<div class="game-over">Game Over! ${winner} Wins!</div>`;
+                }
                 startBtn.textContent = 'Start Game';
             } else {
                 requestAnimationFrame(gameLoop);
